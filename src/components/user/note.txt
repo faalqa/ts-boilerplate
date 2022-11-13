@@ -1,0 +1,16 @@
+User
+
+Oreder
+    id
+    User_id
+    
+Product
+    id
+    name
+    description
+
+Order-Product
+    id
+    order_id
+    product_id
+    quant

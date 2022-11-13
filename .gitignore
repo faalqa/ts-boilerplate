@@ -1,6 +1,13 @@
+<<<<<<< Updated upstream
 node_modules
 dist
 .vscode
 .env
 data
+=======
+node_modules
+dist
+.env
+data
+>>>>>>> Stashed changes
 logs

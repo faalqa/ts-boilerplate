@@ -11,6 +11,7 @@ import { currentUser } from './src/middlewares/current-user';
 import morganMiddleware from './src/middlewares/morgan';
 
 const app = express();
+const path = require('path');
 app.use(express.json());
 app.use(currentUser);
 app.use(morganMiddleware);
@@ -20,6 +21,10 @@ app.get('/', (req: Request, res: Response): void => {
 });
 
 routing.api(app);
+
+app.get('/signup.html', (req: Request, res: Response): void => {
+  res.sendFile(path.join(__dirname+'/signup.html'));
+});
 
 app.all('*', async (req, res) => {
   throw new NotFoundError();

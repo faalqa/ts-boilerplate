@@ -12,6 +12,7 @@ class Common {
   // Any is used here because we can't determine the object structure ahead
   // as this is used for the insertion of different models
   static async dbInsertion(table: string, obj: any): Promise<InserQuery | void>{
+    console.log('in common db insertion');
     try{
       const [ row, inserted ] = await sequelize.query(
         `
