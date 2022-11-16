@@ -2,7 +2,7 @@ import app from '../../../app';
 import supertest from 'supertest';
 import { truncateDB } from '../../../spec/utils';
 
-describe('[E2E] User', function() {
+describe('[E2E] Order', function() {
 
   describe('Testing the signup endpoint', function() {
     beforeEach(async() => {
@@ -13,7 +13,7 @@ describe('[E2E] User', function() {
     it('creates an account', async function() {
       // status code should be 201 `Created`
       const response = await supertest(app)
-        .post('/users')
+        .post('/orders')
         .send({
           firstname: 'test',
           lastname: 'test',
@@ -27,26 +27,26 @@ describe('[E2E] User', function() {
     // Failure scenarios
     it('returns 400 if an account existed with the same email address', async function() {
       // status code should be 201 `Created`
-      const createUser1Response = await supertest(app)
-        .post('/users')
+      const createOrder1Response = await supertest(app)
+        .post('/orders')
         .send({
           firstname: 'test',
           lastname: 'test',
           email: 'test@test.com',
           password: '12345678',
         });
-      expect(createUser1Response.statusCode).toBe(201);
+      expect(createOrder1Response.statusCode).toBe(201);
 
       // status code should be 400
-      const createUser2Response = await supertest(app)
-        .post('/users')
+      const createOrder2Response = await supertest(app)
+        .post('/orders')
         .send({
           firstname: 'test',
           lastname: 'test',
           email: 'test@test.com',
           password: '12345678',
         });
-      expect(createUser2Response.statusCode).toBe(400);
+      expect(createOrder2Response.statusCode).toBe(400);
     });
   });
 
