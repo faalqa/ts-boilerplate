@@ -12,7 +12,7 @@ const orderRouter = (app: Express) => {
   app.get('/orders/:id', OrderController.getOrder);
 
   // Auth
-  //   app.post('/orders', validateRequest(createOrderValidation), OrderController.signUp);
+  app.post('/orders', OrderController.makeOrder);
   //   app.post('/orders/login', OrderController.login);
 
 };

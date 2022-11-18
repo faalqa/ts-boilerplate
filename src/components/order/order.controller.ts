@@ -17,23 +17,13 @@ class OrderController {
     res.send(orders);
   }
 
+  // 1. initiate order (post - order)
   async makeOrder(req: Request, res: Response){
-    // 1. select product (product already in db)
-
-    // 2. create order
-
-    // 3. add product to order
     const {
       user_id,
-      product_id,
-      order_id,
-      quantity,
     } = req.body;
 
     const dataObject: ICreateOrder = { user_id };
-    /*
-      in create() function, insert to all tables, maybe
-    */
 
     const order = await Order.create(dataObject);
     res.status(201).send(order);

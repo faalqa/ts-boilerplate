@@ -4,13 +4,20 @@ Oreder
     id
     User_id
     
-Product
+Product: insert into products (name, price) values ('iPhone 14', '5400');
     id
     name
-    description
+    price
 
-Order-Product
+Order-Product (cart)
     id
     order_id
     product_id
-    quant
+    quantity
+    status
+
+in order.controlller:
+  // 1. initiate order (post - order)
+in cart.controlller: 
+  // 2. Add to cart: select products and quantities (post - add)
+  // 3. finalize the order: change status
