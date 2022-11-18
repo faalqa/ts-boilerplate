@@ -18,8 +18,8 @@ class CartController {
       status,
     } = req.body;
 
-    const dataObject: IUpdateCart = { order_id, status };
-    const carts = await Cart.changeStatus(dataObject, +req.params.id);
+    const dataObject: IUpdateCart = { status };
+    const carts = await Cart.changeStatus(dataObject, order_id);
     res.send(carts);
   }
 

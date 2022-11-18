@@ -6,7 +6,6 @@ export interface ICreateCart {
 }
 
 export interface IUpdateCart {
-    order_id: number,
     quantity?: number,
     status?: string,
 }
