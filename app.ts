@@ -22,10 +22,6 @@ app.get('/', (req: Request, res: Response): void => {
 
 routing.api(app);
 
-app.get('/signup.html', (req: Request, res: Response): void => {
-  res.sendFile(path.join(__dirname+'/signup.html'));
-});
-
 app.all('*', async (req, res) => {
   throw new NotFoundError();
 });

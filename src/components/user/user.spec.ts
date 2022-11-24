@@ -2,7 +2,7 @@ import app from '../../../app';
 import supertest from 'supertest';
 import { truncateDB } from '../../../spec/utils';
 
-xdescribe('User Endpoint', function() {
+describe('User Endpoint', function() {
 
   describe('Testing the signup endpoint', function() {
     beforeEach(async() => {

@@ -51,7 +51,6 @@ class UserController {
   }
 
   async signUp(req: Request, res: Response){
-    console.log('in user.controller signup');
     const {
       firstname,
       lastname,

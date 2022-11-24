@@ -12,10 +12,6 @@ describe('Cart Endpoint', function() {
       await truncateDB();
     });
 
-    beforeAll(async() => {
-
-    });
-
     it('Add to cart', async function() {
 
       await Common.dbInsertion('products', {
@@ -36,8 +32,6 @@ describe('Cart Endpoint', function() {
       const token = loginRes.body.data.token;
 
       const showRes = await showProducts(token);
-      console.log('products: ' + product.id);
-      //   const productId = showRes.body[0].id;
 
       const orderRes = await order(user.id, token);
       const order_id = orderRes.body.id;

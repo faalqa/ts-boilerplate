@@ -2,7 +2,7 @@ import app from '../../../app';
 import supertest from 'supertest';
 import { login, signup, truncateDB } from '../../../spec/utils';
 
-xdescribe('Order Endpoint', function() {
+describe('Order Endpoint', function() {
 
   describe('Testing order endpoint ', function() {
     beforeEach(async() => {

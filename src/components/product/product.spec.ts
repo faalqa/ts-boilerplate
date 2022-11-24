@@ -2,7 +2,7 @@ import app from '../../../app';
 import supertest from 'supertest';
 import { login, signup, truncateDB } from '../../../spec/utils';
 
-xdescribe('Product Endpoint', function() {
+describe('Product Endpoint', function() {
 
   describe('Testing product endpoint ', function() {
     beforeEach(async() => {
@@ -17,7 +17,7 @@ xdescribe('Product Endpoint', function() {
       const loginRes = await login(5);
       const token = loginRes.body.data.token;
 
-      // status code should be 201 `Created`
+      // status code should be 200 `OK`
       const response = await supertest(app)
         .get('/products')
         .set('Authorization', 'Bearer ' + token);
