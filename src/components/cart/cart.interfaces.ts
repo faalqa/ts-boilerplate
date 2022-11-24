@@ -2,12 +2,6 @@ export interface ICreateCart {
     order_id: number,
     product_id: number,
     quantity: number,
-    status: string,
-}
-
-export interface IUpdateCart {
-    quantity?: number,
-    status?: string,
 }
 
 export interface ICart {
@@ -15,7 +9,6 @@ export interface ICart {
     order_id: number,
     product_id: number,
     quantity: number,
-    status: string,
     created_at: string,
 }
 
@@ -24,6 +17,5 @@ export interface ICartSerialized {
     order_id: number,
     product_id: number,
     quantity: number,
-    status: string,
     created_at: string,
 }

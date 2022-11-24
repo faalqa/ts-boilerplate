@@ -1,5 +1,5 @@
 import Common from '../../utils/common';
-import { ICreateOrder, IOrder, IOrderSerialized } from './order.interfaces';
+import { ICreateOrder, IUpdateOrder, IOrderSerialized } from './order.interfaces';
 
 class Order {
   static tableName = 'orders';
@@ -34,6 +34,17 @@ class Order {
       const newOrder = insertQuery.data[0] as IOrderSerialized;
 
       return newOrder;
+    }else{
+      return null;
+    }
+  }
+
+  static async changeStatus(cart: IUpdateOrder, order_id: number): Promise<IOrderSerialized | null>{
+    const updateQuery = await Common.dbUpdate(Order.tableName, cart, {order_id});
+    if(updateQuery && updateQuery.updated){
+      const newCart = updateQuery.data[0] as IOrderSerialized;
+
+      return newCart;
     }else{
       return null;
     }

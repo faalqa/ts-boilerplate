@@ -2,7 +2,7 @@ import app from '../../../app';
 import supertest from 'supertest';
 import { truncateDB } from '../../../spec/utils';
 
-describe('[E2E] User', function() {
+xdescribe('User Endpoint', function() {
 
   describe('Testing the signup endpoint', function() {
     beforeEach(async() => {
@@ -18,7 +18,7 @@ describe('[E2E] User', function() {
           firstname: 'test',
           lastname: 'test',
           email: 'test@test.com',
-          password: '123456',
+          password: '12345678',
         });
       expect(response.statusCode).toBe(201);
     });
@@ -32,7 +32,7 @@ describe('[E2E] User', function() {
           firstname: 'test',
           lastname: 'test',
           email: 'test@test.com',
-          password: '123456',
+          password: '12345678',
         });
       expect(createUser1Response.statusCode).toBe(201);
 
@@ -43,7 +43,7 @@ describe('[E2E] User', function() {
           firstname: 'test',
           lastname: 'test',
           email: 'test@test.com',
-          password: '123456',
+          password: '12345678',
         });
       expect(createUser2Response.statusCode).toBe(400);
     });

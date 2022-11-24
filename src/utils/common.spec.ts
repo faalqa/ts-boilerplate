@@ -3,7 +3,7 @@ import Common from './common';
 import { sequelize } from '../../config/sequelize';
 import { QueryTypes } from 'sequelize';
 
-describe('CommonRepository', function() {
+xdescribe('CommonRepository', function() {
 
   describe('Testing dbInsertion Function', function() {
     beforeEach(async() => {

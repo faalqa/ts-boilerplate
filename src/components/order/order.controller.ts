@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { ICreateOrder } from './order.interfaces';
+import { ICreateOrder, IUpdateOrder  } from './order.interfaces';
 import Order from './order.model';
 
 class OrderController {
@@ -21,12 +21,24 @@ class OrderController {
   async makeOrder(req: Request, res: Response){
     const {
       user_id,
+      status,
     } = req.body;
 
-    const dataObject: ICreateOrder = { user_id };
+    const dataObject: ICreateOrder = { user_id, status };
 
     const order = await Order.create(dataObject);
     res.status(201).send(order);
+  }
+
+  async changeStatus(req: Request, res: Response){
+    const {
+      order_id,
+      status,
+    } = req.body;
+
+    const dataObject: IUpdateOrder = { status };
+    const carts = await Order.changeStatus(dataObject, order_id);
+    res.send(carts);
   }
 }
 

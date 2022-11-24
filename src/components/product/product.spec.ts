@@ -2,14 +2,14 @@ import app from '../../../app';
 import supertest from 'supertest';
 import { login, signup, truncateDB } from '../../../spec/utils';
 
-xdescribe('Order Endpoint', function() {
+xdescribe('Product Endpoint', function() {
 
-  describe('Testing order endpoint ', function() {
+  describe('Testing product endpoint ', function() {
     beforeEach(async() => {
       await truncateDB();
     });
 
-    it('creates an order for a user', async function() {
+    it('Show all products with status code 200', async function() {
 
       const signupRes = await signup(5);
       const user = signupRes.body.data.user;
@@ -19,14 +19,10 @@ xdescribe('Order Endpoint', function() {
 
       // status code should be 201 `Created`
       const response = await supertest(app)
-        .post('/orders')
-        .set('Authorization', 'Bearer ' + token)
-        .send({
-          user_id: user.id,
-          status: 'Active',
-        });
+        .get('/products')
+        .set('Authorization', 'Bearer ' + token);
 
-      expect(response.statusCode).toBe(201);
+      expect(response.statusCode).toBe(200);
     });
   });
 

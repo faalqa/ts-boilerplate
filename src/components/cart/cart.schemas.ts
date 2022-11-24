@@ -1,7 +1,7 @@
 import Joi from 'joi';
 import { IValidationSchema } from '../../utils/joi.interfaces';
 
-export const getOrderValidation: IValidationSchema = {
+export const getCartValidation: IValidationSchema = {
   params: Joi.object({
     id: Joi
       .number()
@@ -9,13 +9,16 @@ export const getOrderValidation: IValidationSchema = {
   }).required(),
 };
 
-export const createOrderValidation: IValidationSchema = {
+export const addToCartValidation: IValidationSchema = {
   body: Joi.object({
-    user_id: Joi
+    order_id: Joi
       .number()
       .required(),
-    status: Joi
-      .string()
+    product_id: Joi
+      .number()
+      .required(),
+    quantity: Joi
+      .number()
       .required(),
   }).required(),
 };

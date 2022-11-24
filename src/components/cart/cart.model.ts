@@ -1,5 +1,5 @@
 import Common from '../../utils/common';
-import { ICreateCart, IUpdateCart, ICart, ICartSerialized } from './cart.interfaces';
+import { ICreateCart, ICart, ICartSerialized } from './cart.interfaces';
 
 class Cart {
   static tableName = 'carts';
@@ -35,17 +35,6 @@ class Cart {
     const insertQuery = await Common.dbInsertion(Cart.tableName, cart);
     if(insertQuery && insertQuery.inserted){
       const newCart = insertQuery.data[0] as ICartSerialized;
-
-      return newCart;
-    }else{
-      return null;
-    }
-  }
-
-  static async changeStatus(cart: IUpdateCart, order_id: number): Promise<ICartSerialized | null>{
-    const updateQuery = await Common.dbUpdate(Cart.tableName, cart, {order_id});
-    if(updateQuery && updateQuery.updated){
-      const newCart = updateQuery.data[0] as ICartSerialized;
 
       return newCart;
     }else{

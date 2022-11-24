@@ -1,6 +1,8 @@
 import { Request, Response } from 'express';
-import { ICreateCart, IUpdateCart } from './cart.interfaces';
+import { ICreateCart } from './cart.interfaces';
 import Cart from './cart.model';
+import CustomResponse from '../../utils/custom-response';
+import { JWT } from '../../utils/jwt';
 
 class CartController {
 
@@ -12,28 +14,22 @@ class CartController {
     res.send(cart);
   }
 
-  async changeStatus(req: Request, res: Response){
-    const {
-      order_id,
-      status,
-    } = req.body;
-
-    const dataObject: IUpdateCart = { status };
-    const carts = await Cart.changeStatus(dataObject, order_id);
-    res.send(carts);
-  }
-
   async addToCart(req: Request, res: Response){
     const {
       order_id,
       product_id,
       quantity,
-      status,
     } = req.body;
 
-    const dataObject: ICreateCart = { order_id, product_id, quantity, status };
+    const dataObject: ICreateCart = { order_id, product_id, quantity };
     const cart = await Cart.create(dataObject);
-    res.status(201).send(cart);
+    if(cart){
+
+      return CustomResponse.send(res, cart, 'Added Successfully', 201);
+    }else{
+      throw new Error();
+    }
+    // res.status(201).send(cart);
   }
 }
 

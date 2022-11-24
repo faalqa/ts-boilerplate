@@ -1,4 +1,4 @@
-User
+User: insert into users (firstname, lastname, email, password) values ('test', 'case', 'testcase@test.com, '12345678');
 
 Oreder
     id
@@ -14,10 +14,18 @@ Order-Product (cart)
     order_id
     product_id
     quantity
-    status
+    status --> move to order table
 
 in order.controlller:
   // 1. initiate order (post - order)
 in cart.controlller: 
   // 2. Add to cart: select products and quantities (post - add)
   // 3. finalize the order: change status
+
+
+  console.log('user id: ' + user.id);
+      console.log('user email: ' + user.email);
+      console.log('user password: ' + user.password);
+      console.log('response.type: ' + loginRes.type);
+      console.log('response: ' + loginRes.text);
+      console.log('response.body : ' + loginRes.body);

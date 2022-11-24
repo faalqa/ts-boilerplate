@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS "users" (
 CREATE TABLE IF NOT EXISTS "orders" (
   "id" SERIAL,
   "user_id" INT NOT NULL,
+  "status" VARCHAR(255) NOT NULL,
   "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY("id"),
   FOREIGN KEY("user_id") REFERENCES users("id")
@@ -26,7 +27,6 @@ CREATE TABLE IF NOT EXISTS "carts" (
   "order_id" INT NOT NULL,
   "product_id" INT NOT NULL,
   "quantity" INT NOT NULL,
-  "status" VARCHAR(255) NOT NULL,
   "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY("id"),
   FOREIGN KEY("order_id") REFERENCES orders("id"),
