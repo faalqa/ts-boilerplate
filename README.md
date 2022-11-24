@@ -46,36 +46,6 @@ npm test
 
 Any by now you should be able to go to `localhost:3000` to test that everything is working as expected.
 
-## Endpoints:
-* Sign Up: 
-post('/users') 
-Request body:
-{
-    "firstname": "Fai",
-    "lastname": "Alqarni",
-    "email": "fai@emial.com",
-    "password": "12345678"
-}
-
-* Login:
-post('/users/login')
-Request body:
-{
-    "email": "fai@emial.com",
-    "password": "12345678"
-}
-
-* Show Profile:
-get('/me')
-
-* Show Users:
-get('/users')
-
-* Show One User:
-get('/users/:id')
-
-
-
 ## Areas of Improvement <a name="Improvement"></a>
 - Adding Support for ORM/Query-Builder models.
 - Adding Factories and Seeds for these models.
